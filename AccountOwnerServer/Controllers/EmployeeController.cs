@@ -28,13 +28,13 @@ namespace AccountOwnerServer.Controllers
         public async Task<IActionResult> GetAllEmployees()
         {
             try
-            
-                // var employees = await _repository.Employee.GetAllEmployeesAsync();
-                // _logger.LogInfo("Returned all employees from the database");
+            {
+                var employees = await _repository.Employee.GetAllEmployeesAsync();
+                _logger.LogInfo("Returned all employees from the database");
 
-                // var employeesResult = _mapper.Map<IEnumerable<EmployeeDto>>(employees);
-                // return Ok(employeesResult);
-                return Ok("Return all employees");
+                var employeesResult = _mapper.Map<IEnumerable<EmployeeDto>>(employees);
+                return Ok(employeesResult);
+                // return Ok("Return all employees");
             }
             catch (Exception ex)
             {
