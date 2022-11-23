@@ -21,14 +21,14 @@ pipeline {
         }
         stage ('Clean Solution') {
             steps {
-                echo 'Cleaning the solution'
+                echo 'Cleaning solution'
                 bat 'dotnet clean AccountOwnerServer.sln'
             }
         }
 
         stage ('Build Solution') {
             steps {
-                echo 'Building the solution'
+                echo 'Building solution'
                 bat 'dotnet build AccountOwnerServer.sln'
             }
         }
