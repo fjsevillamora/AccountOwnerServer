@@ -28,7 +28,7 @@ namespace AccountOwnerServer.Controllers
         public async Task<IActionResult> GetAllEmployees()
         {
             try
-            {
+            
                 // var employees = await _repository.Employee.GetAllEmployeesAsync();
                 // _logger.LogInfo("Returned all employees from the database");
 
