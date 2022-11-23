@@ -44,9 +44,13 @@ pipeline {
                 echo 'Publishing the solution'
                 bat 'dotnet publish --self-contained --runtime  win-x64 -c Release  AccountOwnerServer.sln -o ./deploy'
 
+                echo 'Create Zip file of deploy folder in publishArtifacts'
                 fileOperations([fileZipOperation(folderPath: 'deploy', outputFolderPath: 'publishArtifacts')])
+                echo 'Unzip file of deploy folder in published'
                 fileOperations([fileUnZipOperation(filePath: 'publishArtifacts/deploy.zip', targetLocation: 'published')])
+                echo 'Copy of publish files of published/deploy folder to published'
                 fileOperations([folderCopyOperation(destinationFolderPath: 'published', sourceFolderPath: 'published/deploy')])
+                echo 'Delete published/deploy folder'
                 fileOperations([folderDeleteOperation('published/deploy')])
             }
         }
